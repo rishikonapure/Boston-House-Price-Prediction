@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏠 House Price Prediction 🏠</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🏠 House Price Prediction 🏠</h1>
+        <div class="form-container">
+            <form id="predictForm" method="post" action="/predict">
+                <div class="form-group">
+                    <label for="crim">CRIM:</label>
+                    <input type="text" id="crim" name="crim" required>
+                </div>
+                <div class="form-group">
+                    <label for="zn">ZN:</label>
+                    <input type="text" id="zn" name="zn" required>
+                </div>
+                <div class="form-group">
+                    <label for="indus">INDUS:</label>
+                    <input type="text" id="indus" name="indus" required>
+                </div>
+                <div class="form-group">
+                    <label for="chas">CHAS:</label>
+                    <input type="text" id="chas" name="chas" required>
+                </div>
+                <div class="form-group">
+                    <label for="nox">NOX:</label>
+                    <input type="text" id="nox" name="nox" required>
+                </div>
+                <div class="form-group">
+                    <label for="rm">RM:</label>
+                    <input type="text" id="rm" name="rm" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">AGE:</label>
+                    <input type="text" id="age" name="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="dis">DIS:</label>
+                    <input type="text" id="dis" name="dis" required>
+                </div>
+                <div class="form-group">
+                    <label for="rad">RAD:</label>
+                    <input type="text" id="rad" name="rad" required>
+                </div>
+                <div class="form-group">
+                    <label for="tax">TAX:</label>
+                    <input type="text" id="tax" name="tax" required>
+                </div>
+                <div class="form-group">
+                    <label for="ptratio">PTRATIO:</label>
+                    <input type="text" id="ptratio" name="ptratio" required>
+                </div>
+                <div class="form-group">
+                    <label for="b">B:</label>
+                    <input type="text" id="b" name="b" required>
+                </div>
+                <div class="form-group">
+                    <label for="lstat">LSTAT:</label>
+                    <input type="text" id="lstat" name="lstat" required>
+                </div>
+            </form>
+            <button type="submit" form="predictForm">Predict</button>
+        </div>
+        <div class="result">
+            {% if prediction %}
+                <h2>Predicted Price: ${{ prediction }}</h2>
+            {% endif %}
+        </div>
+        <a href="/info" class="info-button">ℹ️ Dataset Information</a>
+    </div>
+</body>
+</html>
